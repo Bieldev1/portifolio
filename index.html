@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Desenvolvedor Full Stack</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <span class="nav-logo">BM<span class="accent">.</span></span>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#projeto">Projeto</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#arquitetura">Arquitetura</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-orb orb-1"></div>
+      <div class="hero-orb orb-2"></div>
+      <div class="hero-orb orb-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Disponível para novos projetos
+      </div>
+      <h1 class="hero-title">
+        Desenvolvedor<br/>
+        <span class="gradient-text">Full Stack</span>
+      </h1>
+      <p class="hero-subtitle">
+        Especialista em <strong>C# .NET</strong> · <strong>Vue.js</strong> · <strong>Microserviços</strong><br/>
+        Arquitetura limpa, entrega de valor, soluções que escalam.
+      </p>
+      <div class="hero-actions">
+        <a href="#projeto" class="btn btn-primary">Ver Projeto Principal</a>
+        <a href="#contato" class="btn btn-outline">Entre em Contato</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">5+</span>
+          <span class="stat-label">Microserviços</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">4</span>
+          <span class="stat-label">Canais Integrados</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Solo Dev</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="code-card">
+        <div class="code-header">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="code-filename">TicketCommandHandler.cs</span>
+        </div>
+        <pre class="code-body"><code><span class="kw">public class</span> <span class="cls">CreateTicketCommandHandler</span>
+  : <span class="cls">IRequestHandler</span>&lt;<span class="cls">CreateTicketCommand</span>,
+    <span class="cls">Result</span>&lt;<span class="cls">TicketDto</span>&gt;&gt;
+{
+  <span class="kw">public async</span> <span class="cls">Task</span>&lt;<span class="cls">Result</span>&lt;<span class="cls">TicketDto</span>&gt;&gt;
+    Handle(<span class="cls">CreateTicketCommand</span> request,
+           <span class="cls">CancellationToken</span> ct)
+  {
+    <span class="kw">var</span> ticket = <span class="cls">Ticket</span>.Create(
+      request.Title,
+      request.Channel,
+      request.CustomerId
+    );
+
+    <span class="kw">await</span> _repository.AddAsync(ticket, ct);
+    <span class="kw">await</span> _unitOfWork.CommitAsync(ct);
+
+    <span class="kw">return</span> <span class="cls">Result</span>.Success(
+      _mapper.Map&lt;<span class="cls">TicketDto</span>&gt;(ticket)
+    );
+  }
+}</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="section" id="sobre">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Quem sou</span>
+        <h2>Sobre Mim</h2>
+        <p>Desenvolvedor Full Stack com foco em soluções robustas e escaláveis para ambientes corporativos.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            Sou o único desenvolvedor responsável por projetar, construir e evoluir uma plataforma completa de gestão de demandas e comunicações. Atuo em todas as camadas: desde a definição de <strong>user stories e planejamento de sprints</strong> até a entrega de funcionalidades em produção.
+          </p>
+          <p>
+            No back-end, trabalho com <strong>C# .NET</strong> seguindo Clean Architecture, CQRS e DDD, garantindo código limpo, testável e de fácil manutenção. No front-end, mantenho e evoluo a interface com <strong>Vue.js 2 + Composition API</strong> usando o template Materio.
+          </p>
+          <p>
+            Adoto <strong>Git Flow</strong> para controle de versão e <strong>Kanban</strong> como metodologia ágil principal, garantindo visibilidade e entrega contínua mesmo sendo um time de um.
+          </p>
+          <div class="about-tags">
+            <span class="tag">Git Flow</span>
+            <span class="tag">Kanban</span>
+            <span class="tag">Scrum</span>
+            <span class="tag">User Stories</span>
+            <span class="tag">Solo Developer</span>
+          </div>
+        </div>
+        <div class="about-cards">
+          <div class="about-card">
+            <div class="about-card-icon">⚙️</div>
+            <h4>Arquitetura</h4>
+            <p>Clean Architecture, CQRS, DDD, Result Pattern, Camadas desacopladas</p>
+          </div>
+          <div class="about-card">
+            <div class="about-card-icon">🔗</div>
+            <h4>Integrações</h4>
+            <p>WhatsApp API, Messenger API, E-mail, SMS, Chatbot</p>
+          </div>
+          <div class="about-card">
+            <div class="about-card-icon">🚀</div>
+            <h4>Entrega</h4>
+            <p>Git Flow, Kanban, planejamento de features, releases contínuos</p>
+          </div>
+          <div class="about-card">
+            <div class="about-card-icon">🧪</div>
+            <h4>Qualidade</h4>
+            <p>Camada de testes dedicada, Entity Framework, code review próprio</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETO PRINCIPAL -->
+  <section class="section section-dark" id="projeto">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Projeto em Destaque</span>
+        <h2>Plataforma de Gestão de Demandas</h2>
+        <p>Solução completa para centralizar e agilizar o atendimento multicanal de uma empresa.</p>
+      </div>
+
+      <div class="project-overview">
+        <div class="project-description">
+          <h3>Visão Geral</h3>
+          <p>
+            Uma plataforma unificada que integra múltiplos canais de comunicação em um único sistema de tickets, atendendo tanto clientes externos quanto equipes internas. O sistema garante rastreabilidade completa, respostas ágeis e total transparência no fluxo de atendimento.
+          </p>
+          <ul class="project-features">
+            <li>
+              <span class="feature-icon">📥</span>
+              <div>
+                <strong>Gestão de Tickets</strong>
+                <p>Captura e organização automática de demandas de todos os canais em tickets centralizados.</p>
+              </div>
+            </li>
+            <li>
+              <span class="feature-icon">🔔</span>
+              <div>
+                <strong>Comunicação em Tempo Real</strong>
+                <p>Notificações e respostas instantâneas via WhatsApp, E-mail, Messenger e SMS.</p>
+              </div>
+            </li>
+            <li>
+              <span class="feature-icon">🤖</span>
+              <div>
+                <strong>Chatbot & Autoatendimento</strong>
+                <p>Fluxos automatizados para triagem e resolução de demandas sem intervenção humana.</p>
+              </div>
+            </li>
+            <li>
+              <span class="feature-icon">📊</span>
+              <div>
+                <strong>Dashboard & Relatórios</strong>
+                <p>Visibilidade completa de SLAs, volumes e performance de atendimento.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="channels-grid">
+          <h3>Canais Integrados</h3>
+          <div class="channels">
+            <div class="channel-card whatsapp">
+              <div class="channel-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </div>
+              <span>WhatsApp</span>
+            </div>
+            <div class="channel-card email">
+              <div class="channel-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <span>E-mail</span>
+            </div>
+            <div class="channel-card messenger">
+              <div class="channel-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.498 1.744 6.614 4.469 8.654V24l4.088-2.242c1.092.3 2.246.464 3.443.464 6.627 0 12-4.975 12-11.111C24 4.974 18.627 0 12 0zm1.191 14.963l-3.055-3.26-5.963 3.26L10.732 8.1l3.131 3.26 5.887-3.26-6.559 6.863z"/></svg>
+              </div>
+              <span>Messenger</span>
+            </div>
+            <div class="channel-card chatbot">
+              <div class="channel-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21l4-4 4 4"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/></svg>
+              </div>
+              <span>Chatbot</span>
+            </div>
+            <div class="channel-card sms">
+              <div class="channel-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <span>SMS</span>
+            </div>
+            <div class="channel-card self-service">
+              <div class="channel-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              </div>
+              <span>Autoatendimento</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section class="section" id="habilidades">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Stack Técnica</span>
+        <h2>Habilidades & Tecnologias</h2>
+        <p>Tecnologias que uso no dia a dia para construir produtos robustos e escaláveis.</p>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-category">
+          <div class="skill-category-header">
+            <span class="skill-cat-icon">🖥️</span>
+            <h3>Back-end</h3>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>C# / .NET</span>
+                <span class="skill-level">Avançado</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Clean Architecture</span>
+                <span class="skill-level">Avançado</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>CQRS / MediatR</span>
+                <span class="skill-level">Avançado</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>DDD</span>
+                <span class="skill-level">Avançado</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Entity Framework Core</span>
+                <span class="skill-level">Avançado</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Result Pattern</span>
+                <span class="skill-level">Avançado</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-category-header">
+            <span class="skill-cat-icon">🎨</span>
+            <h3>Front-end</h3>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Vue.js 2</span>
+                <span class="skill-level">Avançado</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Composition API</span>
+                <span class="skill-level">Avançado</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Materio Template</span>
+                <span class="skill-level">Intermediário</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>JavaScript / HTML / CSS</span>
+                <span class="skill-level">Avançado</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-category-header">
+            <span class="skill-cat-icon">🔧</span>
+            <h3>Microserviços & APIs</h3>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>WhatsApp API</span>
+                <span class="skill-level">Avançado</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Messenger API</span>
+                <span class="skill-level">Avançado</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Email / MailWatcher</span>
+                <span class="skill-level">Avançado</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>SMS Service</span>
+                <span class="skill-level">Intermediário</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Documents Service</span>
+                <span class="skill-level">Avançado</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="83"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-category-header">
+            <span class="skill-cat-icon">📋</span>
+            <h3>Metodologia & Ferramentas</h3>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Git Flow</span>
+                <span class="skill-level">Avançado</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Kanban</span>
+                <span class="skill-level">Avançado</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>Scrum</span>
+                <span class="skill-level">Intermediário</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span>User Stories & Tasks</span>
+                <span class="skill-level">Avançado</span>
+              </div>
+              <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ARQUITETURA -->
+  <section class="section section-dark" id="arquitetura">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Design do Sistema</span>
+        <h2>Arquitetura do Back-end</h2>
+        <p>Estrutura em camadas com separação de responsabilidades e princípios SOLID.</p>
+      </div>
+
+      <div class="arch-layout">
+        <div class="arch-diagram">
+          <div class="arch-layer layer-api">
+            <div class="layer-label">API Layer</div>
+            <div class="layer-items">
+              <span>Controllers</span>
+              <span>Middlewares</span>
+              <span>Filters</span>
+            </div>
+          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-layer layer-domain">
+            <div class="layer-label">Domain Layer</div>
+            <div class="layer-items">
+              <span>Entities</span>
+              <span>Value Objects</span>
+              <span>Domain Events</span>
+              <span>Interfaces</span>
+            </div>
+          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-layer layer-infra">
+            <div class="layer-label">Infra Layer</div>
+            <div class="layer-items">
+              <span>Repositories</span>
+              <span>EF Core</span>
+              <span>External APIs</span>
+              <span>Services</span>
+            </div>
+          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-layer layer-tests">
+            <div class="layer-label">Tests Layer</div>
+            <div class="layer-items">
+              <span>Unit Tests</span>
+              <span>Integration Tests</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="arch-patterns">
+          <h3>Padrões Aplicados</h3>
+          <div class="pattern-list">
+            <div class="pattern-item">
+              <div class="pattern-badge cqrs">CQRS</div>
+              <div>
+                <h4>Command Query Responsibility Segregation</h4>
+                <p>Separação clara entre operações de leitura e escrita. Commands alteram estado, Queries apenas consultam.</p>
+              </div>
+            </div>
+            <div class="pattern-item">
+              <div class="pattern-badge ddd">DDD</div>
+              <div>
+                <h4>Domain Driven Design</h4>
+                <p>Modelagem centrada no domínio do negócio. Aggregates, Value Objects e Domain Events bem definidos.</p>
+              </div>
+            </div>
+            <div class="pattern-item">
+              <div class="pattern-badge result">Result</div>
+              <div>
+                <h4>Result Pattern</h4>
+                <p>Retorno explícito de sucesso ou falha sem exceptions para controle de fluxo, com mensagens de erro tipadas.</p>
+              </div>
+            </div>
+            <div class="pattern-item">
+              <div class="pattern-badge clean">Clean</div>
+              <div>
+                <h4>Clean Architecture</h4>
+                <p>Dependências apontam para dentro. O domínio não depende de infraestrutura, garantindo testabilidade e flexibilidade.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="microservices-section">
+        <h3>Microserviços Mantidos</h3>
+        <div class="microservices-grid">
+          <div class="ms-card">
+            <div class="ms-icon">📧</div>
+            <h4>Email Service</h4>
+            <p>Envio e recebimento de e-mails, templates dinâmicos e fila de processamento.</p>
+          </div>
+          <div class="ms-card">
+            <div class="ms-icon">👁️</div>
+            <h4>MailWatcher</h4>
+            <p>Monitoramento de caixas de entrada, captura automática e criação de tickets.</p>
+          </div>
+          <div class="ms-card">
+            <div class="ms-icon">📄</div>
+            <h4>Documents Service</h4>
+            <p>Gestão de documentos, geração de PDFs e armazenamento de anexos.</p>
+          </div>
+          <div class="ms-card">
+            <div class="ms-icon">💬</div>
+            <h4>SMS Service</h4>
+            <p>Envio de mensagens SMS com suporte a múltiplos provedores e status de entrega.</p>
+          </div>
+          <div class="ms-card">
+            <div class="ms-icon">🟢</div>
+            <h4>WhatsApp Service</h4>
+            <p>Integração com WhatsApp Business API, webhooks e envio de mensagens rich media.</p>
+          </div>
+          <div class="ms-card">
+            <div class="ms-icon">💙</div>
+            <h4>Messenger Service</h4>
+            <p>Integração com Facebook Messenger API para atendimento via plataforma Meta.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="section" id="contato">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Vamos conversar</span>
+        <h2>Entre em Contato</h2>
+        <p>Interessado em colaborar ou tem alguma pergunta? Fique à vontade para entrar em contato.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <h4>E-mail</h4>
+              <p>seuemail@email.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </div>
+            <div>
+              <h4>GitHub</h4>
+              <p>github.com/seuusuario</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </div>
+            <div>
+              <h4>LinkedIn</h4>
+              <p>linkedin.com/in/seuusuario</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-cta">
+          <div class="cta-card">
+            <h3>Disponível para projetos</h3>
+            <p>Se você tem um projeto interessante ou quer discutir oportunidades, será um prazer conversar.</p>
+            <div class="cta-stack">
+              <span>.NET</span>
+              <span>Vue.js</span>
+              <span>Microserviços</span>
+              <span>Clean Architecture</span>
+            </div>
+            <a href="mailto:seuemail@email.com" class="btn btn-primary btn-full">Enviar Mensagem</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>Desenvolvido com dedicação · <span id="year"></span></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
