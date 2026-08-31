@@ -1,0 +1,122 @@
+:root {
+  /* Papel manila / formulário em carbono — tons de protocolo de atendimento
+     (o que eu literalmente construo no trabalho), não uma paleta genérica. */
+  --paper: #e9dfc4;
+  --paper-2: #ddcda0;
+  --ink: #2b2013;
+  --ink-soft: #6e5f45;
+  --signal: #473a86;
+  --signal-2: #332a63;
+  --line: #c7b788;
+  --surface: #f2e9d0;
+  --surface-raised: #faf4e2;
+
+  /* Monoespaçada de formulário pros títulos e rótulos, serifada legível pro
+     corpo — pegada de protocolo datilografado sem sacrificar leitura. */
+  --font-display: "IBM Plex Mono", "Courier New", monospace;
+  --font-body: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --font-mono: "IBM Plex Mono", "Courier New", monospace;
+}
+
+/* Identidade de marca fixa em tom claro — não é uma superfície adaptativa,
+   então as cores são pintadas explicitamente independente do tema do SO. */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+/* Textura de papel: grão fino + pauta horizontal de livro-ata, bem sutil —
+   dá profundidade ao fundo sem virar um gradiente decorativo qualquer. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 200;
+  opacity: 0.045;
+  mix-blend-mode: multiply;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%25" height="100%25" filter="url(%23n)"/></svg>');
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 35px,
+    color-mix(in srgb, var(--line) 55%, transparent) 36px
+  );
+  opacity: 0.4;
+}
+
+#app {
+  position: relative;
+  z-index: 1;
+}
+
+.btn {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 26px;
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  cursor: pointer;
+}
+.btn-fill {
+  background: var(--signal);
+  border-color: var(--signal);
+  color: #1a0f0a;
+  font-weight: 600;
+}
+.btn-fill:hover {
+  background: var(--signal-2);
+  border-color: var(--signal-2);
+}
+.btn:not(.btn-fill):hover {
+  border-color: var(--signal);
+  color: var(--signal-2);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -1,73 +1,129 @@
 🚀 Gabriel Rocha Santos — Portfólio
 
-Portfólio pessoal desenvolvido com HTML, CSS e JavaScript puro.
-Personal portfolio built with pure HTML, CSS and JavaScript.
-
-Mostrar Imagem
-Mostrar Imagem
-Mostrar Imagem
+Portfólio pessoal desenvolvido com Vue 3, TypeScript e Vite.
+Personal portfolio built with Vue 3, TypeScript and Vite.
 
 🇧🇷 Português
-Sobre o Projeto
-Portfólio profissional criado para apresentar minha trajetória como Desenvolvedor Fullstack, meus projetos reais em produção, stack técnica e formas de contato.
-📋 Seções
 
-Hero — Apresentação com métricas reais (3+ anos, 5+ microsserviços, 6 canais integrados) e trecho de código real em produção
-Sobre Mim — Trajetória profissional de Júnior a Desenvolvedor Pleno com ownership total da plataforma
-Experiência — Histórico profissional na Viktech com tecnologias utilizadas em cada fase
-Projetos — Sistemas reais desenvolvidos e mantidos em produção: Plataforma de Tickets, WhatsApp Service, MailWatcher, Messenger Service, Documents Service e Chatbot
-Habilidades — Stack técnica completa com nível de proficiência
-Arquitetura — Diagrama de camadas da Clean Architecture aplicada no dia a dia (API, Domain, Infrastructure, Tests) e padrões utilizados (CQRS, DDD, Result Pattern)
-Contato — E-mail, WhatsApp, GitHub e LinkedIn
+### Sobre o Projeto
 
-🛠️ Tecnologias
-Mostrar Imagem
-Mostrar Imagem
-Mostrar Imagem
-▶️ Como Rodar Localmente
-Não requer instalação de dependências — é HTML/CSS/JS puro.
-bash# Clone o repositório
+Portfólio profissional criado para apresentar minha trajetória como Desenvolvedor Full Stack, meus projetos reais em produção, stack técnica e formas de contato.
+
+### 📋 Seções
+
+- **Intro** — quem sou e o que faço, sem hero/CTA genérico
+- **Trajetória** — júnior → pleno → único desenvolvedor, em prosa corrida
+- **Projetos** — sistemas reais em produção (NotificationHub, Plataforma de Tickets, WhatsApp Service, MailWatcher, Messenger Service, Documents Service), com a arquitetura (Clean Architecture, CQRS, DDD, Result Pattern) como nota lateral, não seção separada
+- **Stack** — tecnologias que uso no dia a dia
+- **Contato** — e-mail, WhatsApp, GitHub e LinkedIn
+
+### 🎨 Identidade visual
+
+Direção autoral em tom claro: uma margem lateral fixa que funciona como anotação de caderno técnico, indicando em qual seção o leitor está enquanto rola a página — em vez de seções empilhadas idênticas. Badges de stack coloridos com a cor oficial de cada tecnologia, cards com leve rotação e sombra deslocada, reveal on scroll.
+
+### 🛠️ Tecnologias
+
+- **Vue 3** (Composition API) + **TypeScript**
+- **Vite** como build tool
+- CSS puro com design tokens (sem framework de UI)
+- Google Fonts: Bricolage Grotesque, Piazzolla, Fragment Mono
+
+### ▶️ Como Rodar Localmente
+
+Requer **Node.js 18+** (recomendado: LTS atual).
+
+```bash
+# Clone o repositório
 git clone https://github.com/Bieldev1/portifolio.git
 
 # Entre na pasta
 cd portifolio
 
-# Abra o arquivo index.html no navegador
-# Opção 1: clique duas vezes no index.html
-# Opção 2: use a extensão Live Server no VS Code
-📬 Contato
-CanalLinkE-mailgrochasantos67@gmail.comWhatsApp(11) 96385-4807LinkedIngabriel-rocha-santos-105484230GitHubBieldev1
+# Instale as dependências
+npm install
+
+# Rode em modo desenvolvimento
+npm run dev
+
+# Build de produção
+npm run build
+```
+
+### 🔒 Segurança
+
+- Site 100% estático, sem backend — sem credenciais, chaves ou endpoints sensíveis.
+- E-mail e WhatsApp de contato não aparecem como texto literal no HTML: são montados em runtime via JavaScript, dificultando a coleta automática por bots.
+
+### 📬 Contato
+
+| Canal | Link |
+|---|---|
+| E-mail | grochasantos67@gmail.com |
+| WhatsApp | (11) 96385-4807 |
+| LinkedIn | gabriel-rocha-santos-105484230 |
+| GitHub | Bieldev1 |
+
+---
 
 🇺🇸 English
-About the Project
-Professional portfolio created to showcase my journey as a Fullstack Developer, real production projects, tech stack and contact information.
-📋 Sections
 
-Hero — Introduction with real metrics (3+ years, 5+ microservices, 6 integrated channels) and real production code snippet
-About Me — Professional journey from Junior to Mid-level Developer with full platform ownership
-Experience — Work history at Viktech with technologies used in each phase
-Projects — Real systems developed and maintained in production: Ticket Platform, WhatsApp Service, MailWatcher, Messenger Service, Documents Service and Chatbot
-Skills — Complete tech stack with proficiency levels
-Architecture — Clean Architecture layer diagram applied daily (API, Domain, Infrastructure, Tests) and patterns used (CQRS, DDD, Result Pattern)
-Contact — Email, WhatsApp, GitHub and LinkedIn
+### About the Project
 
-🛠️ Technologies
-Mostrar Imagem
-Mostrar Imagem
-Mostrar Imagem
-▶️ How to Run Locally
-No dependencies required — it's pure HTML/CSS/JS.
-bash# Clone the repository
+Professional portfolio created to showcase my journey as a Full Stack Developer, real production projects, tech stack and contact information.
+
+### 📋 Sections
+
+- **Intro** — who I am and what I actually do, no generic hero/CTA
+- **Journey** — junior → mid-level → sole developer, in running prose
+- **Projects** — real systems in production (NotificationHub, Ticket Platform, WhatsApp Service, MailWatcher, Messenger Service, Documents Service), with the architecture (Clean Architecture, CQRS, DDD, Result Pattern) folded in as a side note rather than its own section
+- **Stack** — technologies I use day to day
+- **Contact** — email, WhatsApp, GitHub and LinkedIn
+
+### 🎨 Visual identity
+
+An original light-toned direction: a fixed side margin that works like notebook marginalia, flagging which section the reader is on as they scroll — instead of identical stacked sections. Stack badges colored with each technology's official brand color, slightly rotated cards with offset shadows, scroll reveal.
+
+### 🛠️ Technologies
+
+- **Vue 3** (Composition API) + **TypeScript**
+- **Vite** as build tool
+- Plain CSS with design tokens (no UI framework)
+- Google Fonts: Bricolage Grotesque, Piazzolla, Fragment Mono
+
+### ▶️ How to Run Locally
+
+Requires **Node.js 18+** (current LTS recommended).
+
+```bash
+# Clone the repository
 git clone https://github.com/Bieldev1/portifolio.git
 
 # Navigate to the folder
 cd portifolio
 
-# Open index.html in your browser
-# Option 1: double-click index.html
-# Option 2: use the Live Server extension in VS Code
-📬 Contact
-ChannelLinkEmailgrochasantos67@gmail.comWhatsApp(11) 96385-4807LinkedIngabriel-rocha-santos-105484230GitHubBieldev1
+# Install dependencies
+npm install
+
+# Run in development mode
+npm run dev
+
+# Production build
+npm run build
+```
+
+### 🔒 Security
+
+- 100% static site, no backend — no credentials, keys or sensitive endpoints.
+- Contact email and WhatsApp are never rendered as literal text in the static HTML: they're assembled at runtime via JavaScript to make automated scraping harder.
+
+### 📬 Contact
+
+| Channel | Link |
+|---|---|
+| Email | grochasantos67@gmail.com |
+| WhatsApp | (11) 96385-4807 |
+| LinkedIn | gabriel-rocha-santos-105484230 |
+| GitHub | Bieldev1 |
 
 <p align="center">
   Desenvolvido por <strong>Gabriel Rocha Santos</strong> · Desenvolvedor Fullstack
